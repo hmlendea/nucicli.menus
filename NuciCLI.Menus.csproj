@@ -7,7 +7,7 @@
     <Description>NuciCLI Menu management system</Description>
     <Authors>Horațiu Mlendea</Authors>
     <Copyright>Copyright 2019 © Horațiu Mlendea</Copyright>
-    <RepositoryUrl>https://github.com/hmlendea/nucicli</RepositoryUrl>
+    <RepositoryUrl>https://github.com/hmlendea/nucicli.menus</RepositoryUrl>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageTags>Console Terminal CLI</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
