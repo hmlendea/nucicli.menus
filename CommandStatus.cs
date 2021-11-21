@@ -1,5 +1,3 @@
-using System;
-
 namespace NuciCLI.Menus
 {
     internal enum CommandStatus
