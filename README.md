@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/hmlendea/nucicli.menus.svg?branch=master)](https://travis-ci.com/hmlendea/nucicli.menus) [![Nuget](https://img.shields.io/nuget/v/NuciCLI.Menus.svg?label=NuciCLI.Menus)](https://www.nuget.org/packages/NuciCLI.Menus/)
+[![Nuget](https://img.shields.io/nuget/v/NuciCLI.Menus.svg?label=NuciCLI.Menus)](https://www.nuget.org/packages/NuciCLI.Menus/)
 
 # NuciCLI
 
