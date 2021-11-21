@@ -14,7 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuciCLI" Version="1.3.0" />
+    <PackageReference Include="NuciCLI" Version="1.4.0" />
+    <PackageReference Include="NuciExtensions" Version="1.5.0" />
   </ItemGroup>
     
 </Project>
