@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>NuciCLI.Menus</RootNamespace>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
     <Description>NuciCLI Menu management system</Description>
     <Authors>Horațiu Mlendea</Authors>
-    <Copyright>Copyright 2019 © Horațiu Mlendea</Copyright>
+    <Copyright>Copyright 2021 © Horațiu Mlendea</Copyright>
     <RepositoryUrl>https://github.com/hmlendea/nucicli.menus</RepositoryUrl>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageTags>Console Terminal CLI</PackageTags>
