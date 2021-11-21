@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/hmlendea/nucicli.menus.svg?branch=master)](https://travis-ci.com/hmlendea/nucicli.menus) [![Nuget](https://img.shields.io/nuget/v/NuciCLI.Menus.svg?label=NuciCLI.Menus)](https://www.nuget.org/packages/NuciCLI.Menus/)
+[![Build Status](https://github.com/hmlendea/nucicli.menus/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hmlendea/nucicli.menus/actions/workflows/dotnet.yml) [![Nuget](https://img.shields.io/nuget/v/NuciCLI.Menus.svg?label=NuciCLI.Menus)](https://www.nuget.org/packages/NuciCLI.Menus/)
 
 # NuciCLI
 
