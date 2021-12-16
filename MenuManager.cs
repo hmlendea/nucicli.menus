@@ -57,6 +57,7 @@ namespace NuciCLI.Menus
         /// </summary>
         public MenuManager()
         {
+            AreStatisticsEnabled = false;
             menus = new Dictionary<string, Menu>();
         }
 
