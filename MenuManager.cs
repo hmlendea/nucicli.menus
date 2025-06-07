@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace NuciCLI.Menus
 {
@@ -20,10 +21,7 @@ namespace NuciCLI.Menus
                 {
                     lock (syncRoot)
                     {
-                        if (instance == null)
-                        {
-                            instance = new MenuManager();
-                        }
+                        instance ??= new MenuManager();
                     }
                 }
 
@@ -46,9 +44,9 @@ namespace NuciCLI.Menus
         public EventHandler ActiveMenuChanged;
 
         static volatile MenuManager instance;
-        static object syncRoot = new object();
+        static readonly Lock syncRoot = new();
 
-        IDictionary<string, Menu> menus;
+        readonly IDictionary<string, Menu> menus;
 
         Menu ActiveMenu => menus[ActiveMenuId];
 
@@ -102,7 +100,7 @@ namespace NuciCLI.Menus
         /// <param name="menuType">Menu type.</param>
         /// <param name="parameters">Menu parameters.</param>
         public void OpenMenu(Type menuType, params object[] parameters)
-        {   
+        {
             Menu newMenu = (Menu)Activator.CreateInstance(menuType, parameters);
 
             menus.Add(newMenu.Id, newMenu);
@@ -162,7 +160,7 @@ namespace NuciCLI.Menus
         void TakeCommand()
         {
             string cmd = null;
-            
+
             try
             {
                 cmd = NuciConsole.ReadLine(ActiveMenu.Prompt, ActiveMenu.PromptColour);

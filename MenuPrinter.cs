@@ -10,8 +10,8 @@ namespace NuciCLI.Menus
     {
         public static void PrintMenuHeader(Menu menu)
         {
-            MenuPrinter.PrintTitle(menu);
-            MenuPrinter.PrintCommandList(menu.Commands);
+            PrintTitle(menu);
+            PrintCommandList(menu.Commands);
             NuciConsole.WriteLine();
         }
 
@@ -48,7 +48,7 @@ namespace NuciCLI.Menus
             NuciConsole.Write("Command finished with status ");
 
             string durationString = GetHumanFriendlyDurationString(result.Duration);
-            
+
             if (result.Status == CommandStatus.Success)
             {
                 NuciConsole.Write("Success", NuciConsoleColour.Green);
@@ -61,7 +61,7 @@ namespace NuciCLI.Menus
             {
                 NuciConsole.Write("Cancelled", NuciConsoleColour.Yellow);
             }
-            
+
             NuciConsole.Write($" after {durationString}");
 
             if (result.Status == CommandStatus.Failure)
@@ -78,10 +78,9 @@ namespace NuciCLI.Menus
             {
                 return $"{timeSpan.TotalSeconds:0.00}s";
             }
-            else
-            {
-                return $"{timeSpan.TotalMinutes:0.00}m";
-            }
+
+
+            return $"{timeSpan.TotalMinutes:0.00}m";
         }
     }
 }
