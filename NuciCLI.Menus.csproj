@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>NuciCLI.Menus</RootNamespace>
     <Version>1.5.1</Version>
     <Description>NuciCLI Menu management system</Description>
@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuciCLI" Version="1.4.2" />
-    <PackageReference Include="NuciExtensions" Version="1.5.0" />
+    <PackageReference Include="NuciCLI" Version="2.0.0" />
+    <PackageReference Include="NuciExtensions" Version="5.0.0" />
   </ItemGroup>
-    
+
 </Project>
