@@ -59,7 +59,7 @@ namespace NuciCLI.Menus
         /// Occurs when this <see cref="Menu"/> was disposed.
         /// </summary>
         public event EventHandler Disposed;
-        
+
         internal Dictionary<string, Command> Commands { get; }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace NuciCLI.Menus
         /// </summary>
         public Menu()
         {
-            Commands = new Dictionary<string, Command>();
-            
+            Commands = [];
+
             Id = Guid.NewGuid().ToString();
 
             TitleColour = NuciConsoleColour.Green;
@@ -85,16 +85,9 @@ namespace NuciCLI.Menus
         /// Initializes a new instance of the <see cref="Menu"/> class.
         /// </summary>
         /// <param name="title">Title.</param>
-        public Menu(string title)
-            : this()
-        {
-            Title = title;
-        }
+        public Menu(string title) : this() => Title = title;
 
-        ~Menu()
-        {
-            Dispose(false);
-        }
+        ~Menu() => Dispose(false);
 
         public void Dispose()
         {
@@ -116,11 +109,8 @@ namespace NuciCLI.Menus
             Disposed?.Invoke(this, EventArgs.Empty);
         }
 
-        public void Exit()
-        {
-            MenuManager.Instance.CloseMenu(Id);
-        }
-        
+        public void Exit() => MenuManager.Instance.CloseMenu(Id);
+
         /// <summary>
         /// Adds the command.
         /// </summary>
@@ -129,14 +119,11 @@ namespace NuciCLI.Menus
         /// <param name="action">The action.</param>
         public void AddCommand(string name, string description, Action action)
         {
-            Command command = new Command(name, description, action);
-            
+            Command command = new(name, description, action);
+
             Commands.Add(command.Name, command);
         }
 
-        void HandleHelp()
-        {
-            MenuPrinter.PrintCommandList(Commands);
-        }
+        void HandleHelp() => MenuPrinter.PrintCommandList(Commands);
     }
 }

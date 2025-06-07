@@ -2,11 +2,11 @@ using System;
 
 namespace NuciCLI.Menus
 {
-    internal sealed class CommandResult
+    internal sealed class CommandResult(DateTime startTime, DateTime endTime)
     {
-        public DateTime StartTime { get; }
+        public DateTime StartTime { get; } = startTime;
 
-        public DateTime EndTime { get; }
+        public DateTime EndTime { get; } = endTime;
 
         public TimeSpan Duration => EndTime - StartTime;
 
@@ -30,16 +30,10 @@ namespace NuciCLI.Menus
             }
         }
 
-        public CommandResult(DateTime startTime, DateTime endTime)
-        {
-            StartTime = startTime;
-            EndTime = endTime;
-        }
-
-        public CommandResult(DateTime startTime, DateTime endTime, Exception exception)
-            : this (startTime, endTime)
-        {
-            Exception = exception;
-        }
+        public CommandResult(
+            DateTime startTime,
+            DateTime endTime,
+            Exception exception) : this (startTime, endTime)
+            => Exception = exception;
     }
 }

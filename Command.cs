@@ -2,21 +2,13 @@ using System;
 
 namespace NuciCLI.Menus
 {
-    internal sealed class Command
+    internal sealed class Command(string name, string description, Action action)
     {
-        public string Name { get; }
+        public string Name { get; } = name;
 
-        public string Description { get; }
+        public string Description { get; } = description;
 
-        Action action;
-
-        public Command(string name, string description, Action action)
-        {
-            Name = name;
-            Description = description;
-
-            this.action = action;
-        }
+        Action action = action;
 
         public CommandResult Execute()
         {
