@@ -180,7 +180,7 @@ namespace NuciCLI.Menus
         /// <param name="menuId">The identifier of the menu to switch to.</param>
         public void SwitchToMenu(string menuId)
         {
-            if (ActiveMenuId.Equals(menuId))
+            if (menuId.Equals(ActiveMenuId))
             {
                 return;
             }
