@@ -17,7 +17,7 @@ namespace NuciCLI.Menus
         {
             get
             {
-                if (instance == null)
+                if (instance is null)
                 {
                     lock (syncRoot)
                     {
@@ -42,7 +42,7 @@ namespace NuciCLI.Menus
         /// <summary>
         /// Gets or sets a value indicating whether statistics are enabled.
         /// </summary>
-        public bool AreStatisticsEnabled { get; set; }
+        public bool AreStatisticsEnabled { get; set; } = false;
 
         /// <summary>
         /// Event raised when the menu manager is starting.
@@ -67,18 +67,9 @@ namespace NuciCLI.Menus
         static volatile MenuManager instance;
         static readonly Lock syncRoot = new();
 
-        readonly IDictionary<string, Menu> menus;
+        readonly Dictionary<string, Menu> menus = [];
 
         Menu ActiveMenu => menus[ActiveMenuId];
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MenuManager"/> class.
-        /// </summary>
-        public MenuManager()
-        {
-            AreStatisticsEnabled = false;
-            menus = new Dictionary<string, Menu>();
-        }
 
         /// <summary>
         /// Starts the menu manager with the specified menu type.
@@ -189,7 +180,7 @@ namespace NuciCLI.Menus
         /// <param name="menuId">The identifier of the menu to switch to.</param>
         public void SwitchToMenu(string menuId)
         {
-            if (ActiveMenuId == menuId)
+            if (ActiveMenuId.Equals(menuId))
             {
                 return;
             }
@@ -205,7 +196,7 @@ namespace NuciCLI.Menus
         /// </summary>
         void TakeCommand()
         {
-            string cmd = null;
+            string cmd;
 
             try
             {
@@ -217,13 +208,12 @@ namespace NuciCLI.Menus
                 return;
             }
 
-            if (!ActiveMenu.Commands.ContainsKey(cmd))
+            if (!ActiveMenu.Commands.TryGetValue(cmd, out Command command))
             {
                 NuciConsole.WriteLine("Unknown command", NuciConsoleColour.Red);
                 return;
             }
 
-            Command command = ActiveMenu.Commands[cmd];
             CommandResult result = command.Execute();
 
             if (AreStatisticsEnabled)

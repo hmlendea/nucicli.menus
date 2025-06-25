@@ -20,8 +20,6 @@ namespace NuciCLI.Menus
         /// </summary>
         public string Description { get; } = description;
 
-        Action action = action;
-
         /// <summary>
         /// Executes the command.
         /// </summary>
@@ -40,9 +38,8 @@ namespace NuciCLI.Menus
             {
                 result = new CommandResult(startTime, DateTime.Now, ex);
             }
-            catch (Exception ex)
+            catch
             {
-                result = new CommandResult(startTime, DateTime.Now, ex);
                 throw;
             }
 

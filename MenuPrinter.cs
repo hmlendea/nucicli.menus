@@ -40,9 +40,7 @@ namespace NuciCLI.Menus
 
             foreach (Command command in commands.Values)
             {
-                string formattedName = command.Name.PadRight(commandColumnWidth);
-
-                NuciConsole.WriteLine($"{formattedName} {command.Description}");
+                NuciConsole.WriteLine($"{command.Name.PadRight(commandColumnWidth)} {command.Description}");
             }
         }
 
@@ -57,22 +55,22 @@ namespace NuciCLI.Menus
 
             string durationString = GetHumanFriendlyDurationString(result.Duration);
 
-            if (result.Status == CommandStatus.Success)
+            if (result.Status is CommandStatus.Success)
             {
                 NuciConsole.Write("Success", NuciConsoleColour.Green);
             }
-            else if (result.Status == CommandStatus.Failure)
+            else if (result.Status.Equals(CommandStatus.Failure))
             {
                 NuciConsole.Write("Failed", NuciConsoleColour.Red);
             }
-            else if (result.Status == CommandStatus.Cancelled)
+            else if (result.Status.Equals(CommandStatus.Cancelled))
             {
                 NuciConsole.Write("Cancelled", NuciConsoleColour.Yellow);
             }
 
             NuciConsole.Write($" after {durationString}");
 
-            if (result.Status == CommandStatus.Failure)
+            if (result.Status.Equals(CommandStatus.Failure))
             {
                 NuciConsole.WriteLine($"Error message: {result.Exception.Message}", NuciConsoleColour.Red);
             }
@@ -86,7 +84,6 @@ namespace NuciCLI.Menus
             {
                 return $"{timeSpan.TotalSeconds:0.00}s";
             }
-
 
             return $"{timeSpan.TotalMinutes:0.00}m";
         }
