@@ -8,6 +8,10 @@ namespace NuciCLI.Menus
 {
     internal static class MenuPrinter
     {
+        /// <summary>
+        /// Prints the menu header.
+        /// </summary>
+        /// <param name="menu">The menu to print the header for.</param>
         public static void PrintMenuHeader(Menu menu)
         {
             PrintTitle(menu);
@@ -42,6 +46,10 @@ namespace NuciCLI.Menus
             }
         }
 
+        /// <summary>
+        /// Prints the results of a command execution.
+        /// </summary>
+        /// <param name="result">The result of the command execution.</param>
         public static void PrintCommandResults(CommandResult result)
         {
             NuciConsole.WriteLine();
