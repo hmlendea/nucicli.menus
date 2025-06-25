@@ -8,8 +8,14 @@ namespace NuciCLI.Menus
     /// </summary>
     public class Menu : IDisposable
     {
+        /// <summary>
+        /// Gets or sets the unique identifier for this menu.
+        /// </summary>
         public string Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the parent menu identifier.
+        /// </summary>
         public string ParentId { get; set; }
 
         /// <summary>
@@ -48,6 +54,9 @@ namespace NuciCLI.Menus
         /// <value>The prompt.</value>
         public string Prompt { get; set; } = "> ";
 
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Menu"/> is disposed.
+        /// </summary>
         public bool IsDisposed { get; private set; }
 
         /// <summary>
@@ -89,12 +98,19 @@ namespace NuciCLI.Menus
 
         ~Menu() => Dispose(false);
 
+        /// <summary>
+        /// Disposes the menu and releases any resources it holds.
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Disposes the menu and releases any resources it holds.
+        /// </summary>
+        /// <param name="disposing">If set to <c>true</c>, the method is being called from Dispose.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (IsDisposed || !disposing)
@@ -109,6 +125,9 @@ namespace NuciCLI.Menus
             Disposed?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Exits the menu, closing it and returning to the parent menu if applicable.
+        /// </summary>
         public void Exit() => MenuManager.Instance.CloseMenu(Id);
 
         /// <summary>
