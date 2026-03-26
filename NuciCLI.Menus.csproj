@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>NuciCLI.Menus</RootNamespace>
-    <Version>1.5.4</Version>
+    <Version>1.5.5</Version>
     <Description>NuciCLI Menu management system</Description>
     <Authors>Horațiu Mlendea</Authors>
     <Copyright>Copyright 2025 © Horațiu Mlendea</Copyright>
