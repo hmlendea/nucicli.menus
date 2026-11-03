@@ -205,6 +205,12 @@ NuciCLI.Menus provides a synchronous, event-driven menu manager with hierarchica
 
 See the [architecture documentation](./ARCHITECTURE.md) for the system context, principal components, runtime flows, ownership boundaries, dependencies, constraints, and extension points.
 
+## 🛡️ Privacy and Data
+
+NuciCLI.Menus runs entirely within the host application's process, does not collect, transmit, or persist personal data, and has no built-in telemetry, update checks, or external integrations.
+
+For the detailed description of how the application handles privacy and personal data, see [PRIVACY.md](./PRIVACY.md).
+
 ## Target Framework
 
 The current package targets `.NET 10.0`.
