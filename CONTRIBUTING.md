@@ -87,6 +87,10 @@ dotnet test NuciCLI.Menus.UnitTests/NuciCLI.Menus.UnitTests.csproj
 
 Report security vulnerabilities per the [Security Policy](./SECURITY.md).
 
+## 📋 Code of Conduct
+
+See the [Code of Conduct](./CODE_OF_CONDUCT.md) for the standards of conduct expected in all project spaces.
+
 ## 📄 License
 
 By contributing, you agree that your contributions will be licensed under the `GNU General Public License v3.0 or later`.
