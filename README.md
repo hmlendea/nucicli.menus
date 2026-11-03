@@ -211,6 +211,12 @@ NuciCLI.Menus runs entirely within the host application's process, does not coll
 
 For the detailed description of how the application handles privacy and personal data, see [PRIVACY.md](./PRIVACY.md).
 
+## 🔒 Security
+
+NuciCLI.Menus follows a coordinated disclosure policy for vulnerability reporting.
+
+For information on reporting security vulnerabilities, see [SECURITY.md](./SECURITY.md).
+
 ## Target Framework
 
 The current package targets `.NET 10.0`.
