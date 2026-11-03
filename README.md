@@ -199,6 +199,12 @@ The NuciCLI ecosystem is split into focused packages:
 - [NuciCLI.Arguments](https://github.com/hmlendea/nucicli.arguments) for command-line argument handling
 - [NuciCLI.Menus](https://github.com/hmlendea/nucicli.menus) for interactive terminal menus
 
+## 🏗️ Architecture
+
+NuciCLI.Menus provides a synchronous, event-driven menu manager with hierarchical in-memory menu state and command-driven console presentation.
+
+See the [architecture documentation](./ARCHITECTURE.md) for the system context, principal components, runtime flows, ownership boundaries, dependencies, constraints, and extension points.
+
 ## Target Framework
 
 The current package targets `.NET 10.0`.
