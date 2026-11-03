@@ -221,6 +221,10 @@ For information on reporting security vulnerabilities, see [SECURITY.md](./SECUR
 
 The current package targets `.NET 10.0`.
 
+## 🤝 Contributing
+
+See the [contributing guidelines](./CONTRIBUTING.md) for details on how to report issues, suggest enhancements, and submit changes.
+
 ## License
 
 This project is licensed under the `GNU General Public License v3.0` or later. See [LICENSE](./LICENSE) for details.
