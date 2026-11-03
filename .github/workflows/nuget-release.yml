@@ -17,7 +17,7 @@ jobs:
       id-token: write
 
     env:
-      NUGET_PACKAGE_NAME: NuciXNA.Menus
+      NUGET_PACKAGE_NAME: NuciCLI.Menus
 
     steps:
     - uses: actions/checkout@v4
