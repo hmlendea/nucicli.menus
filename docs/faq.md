@@ -66,7 +66,7 @@ The `NuciCLI.Menus` assembly reference whitelist is `System.Runtime`, `NuciCLI`,
 
 ## Which version numbers are current?
 
-The package project declares `NuciCLI` 3.0.3, `NuciExtensions` 6.0.2 and version 1.5.7. `ARCHITECTURE.md` and `PRIVACY.md` still cite 3.0.1/5.3.1; see [`ambiguities-and-open-questions.md`](./ambiguities-and-open-questions.md).
+The package project declares `NuciCLI` 3.0.3, `NuciExtensions` 6.0.3 and version 1.5.8. `ARCHITECTURE.md` and `PRIVACY.md` still cite 3.0.1/5.3.1; see [`ambiguities-and-open-questions.md`](./ambiguities-and-open-questions.md).
 
 ## Why is `ProtectedDisposalMenu` unused?
 

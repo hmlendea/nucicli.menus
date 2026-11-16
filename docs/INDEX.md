@@ -77,7 +77,7 @@ There is no `ROADMAP.md` in this repository; planned work is tracked through Git
 | Field | Value |
 |-------|-------|
 | Last reviewed | 2026-11-16 |
-| Version documented | `NuciCLI.Menus` 1.5.7 (`NuciCLI` 3.0.3, `NuciExtensions` 6.0.2) |
+| Version documented | `NuciCLI.Menus` 1.5.8 (`NuciCLI` 3.0.3, `NuciExtensions` 6.0.3) |
 | Coverage | Production library, unit tests, architecture tests, CI workflows |
 | Known gaps | No coverage of real console I/O; `MenuPrinter` and `MenuManager.TakeCommand` are not exercised by tests |
 

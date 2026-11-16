@@ -5,7 +5,7 @@
 | Package | Version | Purpose | Used by |
 |---------|---------|---------|---------|
 | `NuciCLI` | 3.0.3 | Console input/output/colour and `InputCancellationException` | `MenuManager`, `MenuPrinter`, `Command`, `CommandResult`, `Menu`, `IMenu` |
-| `NuciExtensions` | 6.0.2 | `string.Reverse()` for the mirrored title decoration | `MenuPrinter.PrintTitle` |
+| `NuciExtensions` | 6.0.3 | `string.Reverse()` for the mirrored title decoration | `MenuPrinter.PrintTitle` |
 
 Target framework: `net10.0`. `System.Threading.Lock` (used for the singleton) is provided by the runtime, not a package.
 
@@ -13,7 +13,7 @@ Target framework: `net10.0`. `System.Threading.Lock` (used for the singleton) is
 
 | Package | Version | Purpose |
 |---------|---------|---------|
-| `Microsoft.NET.Test.Sdk` | 18.11.0 | Test host and runner infrastructure |
+| `Microsoft.NET.Test.Sdk` | 18.12.0 | Test host and runner infrastructure |
 | `Moq` | 4.21.0 | Verifying `EventHandler`/`Action` invocation counts |
 | `NUnit` | 5.0.0 | Test framework |
 | `NUnit3TestAdapter` | 6.3.1 | VSTest adapter for NUnit |
@@ -23,8 +23,8 @@ Target framework: `net10.0`. `System.Threading.Lock` (used for the singleton) is
 | Package | Version | Purpose |
 |---------|---------|---------|
 | `ArchUnitNET` | 2.4.0-alpha.1 | Dependency-cycle and path rules over project sources |
-| `Microsoft.CodeAnalysis.CSharp` | 4.14.0 | Roslyn parsing for source-file convention rules |
-| `Microsoft.NET.Test.Sdk` | 18.11.0 | Test host |
+| `Microsoft.CodeAnalysis.CSharp` | 5.12.0 | Roslyn parsing for source-file convention rules |
+| `Microsoft.NET.Test.Sdk` | 18.12.0 | Test host |
 | `NUnit` | 5.0.0 | Test framework |
 | `NUnit3TestAdapter` | 6.3.1 | VSTest adapter |
 
@@ -40,8 +40,8 @@ Target framework: `net10.0`. `System.Threading.Lock` (used for the singleton) is
 
 | Source | `NuciCLI` | `NuciExtensions` | Package version |
 |--------|-----------|------------------|-----------------|
-| `NuciCLI.Menus.csproj` | 3.0.3 | 6.0.2 | 1.5.7 |
-| `README.md` | 3.0.3 | 6.0.2 | — |
+| `NuciCLI.Menus.csproj` | 3.0.3 | 6.0.3 | 1.5.8 |
+| `README.md` | 3.0.3 | 6.0.3 | — |
 | `ARCHITECTURE.md` | 3.0.1 | 5.3.1 | — |
 | `PRIVACY.md` | 3.0.1 | 5.3.1 | — |
 

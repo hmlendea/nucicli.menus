@@ -6,12 +6,12 @@ Items below are observed discrepancies or undocumented assumptions. Each records
 
 | Source | `NuciCLI` | `NuciExtensions` |
 |--------|-----------|------------------|
-| `NuciCLI.Menus/NuciCLI.Menus.csproj` (authoritative) | 3.0.3 | 6.0.2 |
-| `README.md` | 3.0.3 | 6.0.2 |
+| `NuciCLI.Menus/NuciCLI.Menus.csproj` (authoritative) | 3.0.3 | 6.0.3 |
+| `README.md` | 3.0.3 | 6.0.3 |
 | `ARCHITECTURE.md` | 3.0.1 | 5.3.1 |
 | `PRIVACY.md` | 3.0.1 | 5.3.1 |
 
-Question: should the root documents be updated to 3.0.3 / 6.0.2, and are the older statements describing an intentional support floor?
+Question: should the root documents be updated to 3.0.3 / 6.0.3, and are the older statements describing an intentional support floor?
 
 ## A2 — `CommandStatus.Failure` is unreachable
 
