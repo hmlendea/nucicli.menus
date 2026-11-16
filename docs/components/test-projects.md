@@ -4,7 +4,7 @@ Two test projects exist. Both target `net10.0`, disable implicit usings, enable 
 
 ## `NuciCLI.Menus.UnitTests`
 
-References the production project directly. Packages: `Microsoft.NET.Test.Sdk` 18.11.0, `Moq` 4.21.0, `NUnit` 5.0.0, `NUnit3TestAdapter` 6.3.1.
+References the production project directly. Packages: `Microsoft.NET.Test.Sdk` 18.12.0, `Moq` 4.21.0, `NUnit` 5.0.0, `NUnit3TestAdapter` 6.3.1.
 
 | File | Fixture | Verified behaviour |
 |------|---------|--------------------|
@@ -30,7 +30,7 @@ Reason: all of these reach `NuciConsole` statics, which are not abstracted, so n
 
 ## `NuciCLI.Menus.ArchitectureTests`
 
-References the production project. Packages: `ArchUnitNET` 2.4.0-alpha.1, `Microsoft.CodeAnalysis.CSharp` 4.14.0, `Microsoft.NET.Test.Sdk` 18.11.0, `NUnit` 5.0.0, `NUnit3TestAdapter` 6.3.1.
+References the production project. Packages: `ArchUnitNET` 2.4.0-alpha.1, `Microsoft.CodeAnalysis.CSharp` 5.12.0, `Microsoft.NET.Test.Sdk` 18.12.0, `NUnit` 5.0.0, `NUnit3TestAdapter` 6.3.1.
 
 | File | Test | Rule enforced |
 |------|------|---------------|

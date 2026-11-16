@@ -2,7 +2,7 @@
 
 The library integrates with exactly two external packages, both in-process. It has no service integrations.
 
-## `NuciCLI` 3.0.3
+## `NuciCLI` 3.0.4
 
 | Aspect | Detail |
 |--------|--------|
@@ -15,7 +15,7 @@ The library integrates with exactly two external packages, both in-process. It h
 
 Verified call sites: `MenuManager.cs` lines ~139–221, `MenuPrinter.cs` lines ~24–83.
 
-## `NuciExtensions` 6.0.2
+## `NuciExtensions` 6.0.3
 
 | Aspect | Detail |
 |--------|--------|

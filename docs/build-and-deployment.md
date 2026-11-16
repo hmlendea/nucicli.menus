@@ -19,7 +19,7 @@ No `release.sh`, `Dockerfile`, or Compose file exists.
 
 ## Packaging
 
-`dotnet pack -c Release --output ./nupkg -p:Version=<version>` produces `NuciCLI.Menus.<version>.nupkg`. The package version is normally injected from the release tag, not taken from the `<Version>` property (currently `1.5.7`).
+`dotnet pack -c Release --output ./nupkg -p:Version=<version>` produces `NuciCLI.Menus.<version>.nupkg`. The package version is normally injected from the release tag, not taken from the `<Version>` property (currently `1.5.8`).
 
 Package identity: `GPL-3.0-or-later`, `IsPackable=true`, `GeneratePackageOnBuild=false`.
 

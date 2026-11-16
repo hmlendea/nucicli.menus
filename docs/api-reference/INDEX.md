@@ -9,7 +9,7 @@
 | Assembly | `NuciCLI.Menus` |
 | Namespace | `NuciCLI.Menus` (all types) |
 | Target framework | `net10.0` |
-| Package version documented | 1.5.7 |
+| Package version documented | 1.5.8 |
 | Authentication | Not applicable |
 | Versioning | NuGet semantic versions derived from GitHub release tags |
 | Rate limiting | Not applicable |
