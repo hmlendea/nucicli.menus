@@ -114,7 +114,7 @@ dotnet test --no-build --verbosity normal
 
 | Package | Version | Scope | Purpose |
 |---------|---------|-------|---------|
-| `NuciCLI` | `3.0.3` | Runtime | Provides console input, output, colours, and input cancellation. |
+| `NuciCLI` | `3.0.4` | Runtime | Provides console input, output, colours, and input cancellation. |
 | `NuciExtensions` | `6.0.3` | Runtime | Provides extension utilities used by the library. |
 | `Microsoft.NET.Test.Sdk` | `18.12.0` | Development | Supports test execution. |
 | `Moq` | `4.21.0` | Development | Provides test doubles. |

@@ -2,7 +2,7 @@
 
 The library integrates with exactly two external packages, both in-process. It has no service integrations.
 
-## `NuciCLI` 3.0.3
+## `NuciCLI` 3.0.4
 
 | Aspect | Detail |
 |--------|--------|

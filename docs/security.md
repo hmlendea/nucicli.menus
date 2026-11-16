@@ -35,7 +35,7 @@ The root [`SECURITY.md`](../SECURITY.md) defines reporting, scope, and disclosur
 
 ## Supply chain
 
-- Runtime dependencies are `NuciCLI` 3.0.3 and `NuciExtensions` 6.0.3 (asserted in `NuciCLI.Menus.csproj`; root `ARCHITECTURE.md` and `PRIVACY.md` still cite older versions — see [`ambiguities-and-open-questions.md`](./ambiguities-and-open-questions.md)).
+- Runtime dependencies are `NuciCLI` 3.0.4 and `NuciExtensions` 6.0.3 (asserted in `NuciCLI.Menus.csproj`; root `ARCHITECTURE.md` and `PRIVACY.md` still cite older versions — see [`ambiguities-and-open-questions.md`](./ambiguities-and-open-questions.md)).
 - `.github/workflows/security.yml` runs `dotnet list package --vulnerable --include-transitive` and CodeQL for C# on push, pull request, and a weekly schedule.
 - Release workflows use OIDC (`NuGet/login@v1`) for NuGet publishing and `GITHUB_TOKEN` with `contents: write` for release asset upload.
 

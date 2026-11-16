@@ -4,7 +4,7 @@
 
 | Package | Version | Purpose | Used by |
 |---------|---------|---------|---------|
-| `NuciCLI` | 3.0.3 | Console input/output/colour and `InputCancellationException` | `MenuManager`, `MenuPrinter`, `Command`, `CommandResult`, `Menu`, `IMenu` |
+| `NuciCLI` | 3.0.4 | Console input/output/colour and `InputCancellationException` | `MenuManager`, `MenuPrinter`, `Command`, `CommandResult`, `Menu`, `IMenu` |
 | `NuciExtensions` | 6.0.3 | `string.Reverse()` for the mirrored title decoration | `MenuPrinter.PrintTitle` |
 
 Target framework: `net10.0`. `System.Threading.Lock` (used for the singleton) is provided by the runtime, not a package.
@@ -40,8 +40,8 @@ Target framework: `net10.0`. `System.Threading.Lock` (used for the singleton) is
 
 | Source | `NuciCLI` | `NuciExtensions` | Package version |
 |--------|-----------|------------------|-----------------|
-| `NuciCLI.Menus.csproj` | 3.0.3 | 6.0.3 | 1.5.8 |
-| `README.md` | 3.0.3 | 6.0.3 | — |
+| `NuciCLI.Menus.csproj` | 3.0.4 | 6.0.3 | 1.5.8 |
+| `README.md` | 3.0.4 | 6.0.3 | — |
 | `ARCHITECTURE.md` | 3.0.1 | 5.3.1 | — |
 | `PRIVACY.md` | 3.0.1 | 5.3.1 | — |
 
