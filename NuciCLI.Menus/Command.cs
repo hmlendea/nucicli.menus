@@ -26,24 +26,18 @@ namespace NuciCLI.Menus
         /// <returns>A <see cref="CommandResult"/> representing the result of the command execution.</returns>
         public CommandResult Execute()
         {
-            CommandResult result;
             DateTime startTime = DateTime.Now;
 
             try
             {
                 action();
-                result = new CommandResult(startTime, DateTime.Now);
+
+                return new CommandResult(startTime, DateTime.Now);
             }
             catch (InputCancellationException ex)
             {
-                result = new CommandResult(startTime, DateTime.Now, ex);
+                return new CommandResult(startTime, DateTime.Now, ex);
             }
-            catch
-            {
-                throw;
-            }
-
-            return result;
         }
     }
 }

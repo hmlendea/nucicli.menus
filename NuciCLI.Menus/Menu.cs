@@ -6,7 +6,7 @@ namespace NuciCLI.Menus
     /// <summary>
     /// Command-line menu.
     /// </summary>
-    public class Menu : IDisposable
+    public class Menu : IDisposable, IMenu
     {
         /// <summary>
         /// Gets or sets the unique identifier for this menu.
@@ -16,7 +16,7 @@ namespace NuciCLI.Menus
         /// <summary>
         /// Gets or sets the parent menu identifier.
         /// </summary>
-        public string ParentId { get; set; }
+        public string? ParentId { get; set; }
 
         /// <summary>
         /// Gets or sets the title colour.
@@ -40,7 +40,7 @@ namespace NuciCLI.Menus
         /// Gets or sets the title.
         /// </summary>
         /// <value>The title.</value>
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the title decoration.
@@ -59,17 +59,17 @@ namespace NuciCLI.Menus
         /// </summary>
         public bool IsDisposed { get; private set; }
 
+        internal Dictionary<string, Command> Commands { get; }
+
         /// <summary>
         /// Occurs when this <see cref="Menu"/> was created.
         /// </summary>
-        public event EventHandler Created;
+        public event EventHandler? Created;
 
         /// <summary>
         /// Occurs when this <see cref="Menu"/> was disposed.
         /// </summary>
-        public event EventHandler Disposed;
-
-        internal Dictionary<string, Command> Commands { get; }
+        public event EventHandler? Disposed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
@@ -131,11 +131,11 @@ namespace NuciCLI.Menus
         public void Exit() => MenuManager.Instance.CloseMenu(Id);
 
         /// <summary>
-        /// Adds the command.
+        /// Adds a command to the menu.
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="description">The description.</param>
-        /// <param name="action">The action.</param>
+        /// <param name="name">The name of the command.</param>
+        /// <param name="description">The description of the command.</param>
+        /// <param name="action">The action to execute when the command is invoked.</param>
         public void AddCommand(string name, string description, Action action)
         {
             Command command = new(name, description, action);
@@ -143,6 +143,6 @@ namespace NuciCLI.Menus
             Commands.Add(command.Name, command);
         }
 
-        void HandleHelp() => MenuPrinter.PrintCommandList(Commands);
+        private void HandleHelp() => MenuPrinter.PrintCommandList(Commands);
     }
 }

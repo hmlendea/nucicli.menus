@@ -7,8 +7,13 @@ namespace NuciCLI.Menus
     /// <summary>
     /// Menu manager.
     /// </summary>
-    public class MenuManager
+    public class MenuManager : IMenuManager
     {
+        private static readonly Lock syncRoot = new();
+        private static volatile MenuManager? instance;
+
+        private readonly Dictionary<string, Menu> menus = [];
+
         /// <summary>
         /// Gets the instance.
         /// </summary>
@@ -32,7 +37,7 @@ namespace NuciCLI.Menus
         /// <summary>
         /// Gets or sets the active menu identifier.
         /// </summary>
-        public string ActiveMenuId { get; private set; }
+        public string? ActiveMenuId { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether the menu manager is running.
@@ -42,40 +47,35 @@ namespace NuciCLI.Menus
         /// <summary>
         /// Gets or sets a value indicating whether statistics are enabled.
         /// </summary>
-        public bool AreStatisticsEnabled { get; set; } = false;
+        public bool AreStatisticsEnabled { get; set; }
+
+        private Menu ActiveMenu => menus[ActiveMenuId!];
 
         /// <summary>
         /// Event raised when the menu manager is starting.
         /// </summary>
-        public EventHandler Starting;
+        public EventHandler? Starting;
 
         /// <summary>
         /// Event raised when the menu manager has started.
         /// </summary>
-        public EventHandler Started;
+        public EventHandler? Started;
 
         /// <summary>
         /// Event raised when the menu manager has stopped.
         /// </summary>
-        public EventHandler Stopped;
+        public EventHandler? Stopped;
 
         /// <summary>
         /// Event raised when the active menu has changed.
         /// </summary>
-        public EventHandler ActiveMenuChanged;
-
-        static volatile MenuManager instance;
-        static readonly Lock syncRoot = new();
-
-        readonly Dictionary<string, Menu> menus = [];
-
-        Menu ActiveMenu => menus[ActiveMenuId];
+        public EventHandler? ActiveMenuChanged;
 
         /// <summary>
         /// Starts the menu manager with the specified menu type.
         /// </summary>
         public void Start<TMenu>() where TMenu : Menu
-            => Start<TMenu>(null);
+            => Start<TMenu>([]);
 
         /// <summary>
         /// Starts the menu manager with the specified menu type and parameters.
@@ -87,7 +87,6 @@ namespace NuciCLI.Menus
             Starting?.Invoke(this, EventArgs.Empty);
 
             OpenMenu<TMenu>(parameters);
-            Menu menu = menus[ActiveMenuId];
 
             IsRunning = true;
 
@@ -106,13 +105,13 @@ namespace NuciCLI.Menus
         /// </summary>
         /// <typeparam name="TMenu">The type of the menu.</typeparam>
         public void OpenMenu<TMenu>() where TMenu : Menu
-            => OpenMenu<TMenu>(null);
+            => OpenMenu<TMenu>([]);
 
         /// <summary>
         /// Opens the menu of the specified type with parameters.
         /// </summary>
         /// <typeparam name="TMenu">The type of the menu.</typeparam>
-        /// <param name="parameters">The parameters to pass to the menu
+        /// <param name="parameters">The parameters to pass to the menu.</param>
         public void OpenMenu<TMenu>(params object[] parameters) where TMenu : Menu
             => OpenMenu(typeof(TMenu), parameters);
 
@@ -121,7 +120,7 @@ namespace NuciCLI.Menus
         /// </summary>
         /// <param name="menuType">Menu type.</param>
         public void OpenMenu(Type menuType)
-            => OpenMenu(menuType, null);
+            => OpenMenu(menuType, []);
 
         /// <summary>
         /// Opens the menu.
@@ -130,15 +129,13 @@ namespace NuciCLI.Menus
         /// <param name="parameters">Menu parameters.</param>
         public void OpenMenu(Type menuType, params object[] parameters)
         {
-            Menu newMenu = (Menu)Activator.CreateInstance(menuType, parameters);
+            Menu newMenu = (Menu)Activator.CreateInstance(menuType, parameters)!;
 
             menus.Add(newMenu.Id, newMenu);
 
             if (!string.IsNullOrWhiteSpace(ActiveMenuId))
             {
-                Menu curMenu = menus[ActiveMenuId];
-
-                newMenu.ParentId = curMenu.Id;
+                newMenu.ParentId = ActiveMenuId;
                 NuciConsole.WriteLine();
             }
 
@@ -149,7 +146,7 @@ namespace NuciCLI.Menus
         /// Closes the current menu.
         /// </summary>
         public void CloseMenu()
-            => CloseMenu(ActiveMenuId);
+            => CloseMenu(ActiveMenuId!);
 
         /// <summary>
         /// Closes the menu with the specified identifier.
@@ -159,7 +156,7 @@ namespace NuciCLI.Menus
         {
             Menu menu = menus[menuId];
 
-            string parentId = menu.ParentId;
+            string? parentId = menu.ParentId;
 
             menus.Remove(menuId);
             menu.Dispose();
@@ -194,9 +191,9 @@ namespace NuciCLI.Menus
         /// <summary>
         /// Handles the command.
         /// </summary>
-        void TakeCommand()
+        private void TakeCommand()
         {
-            string cmd;
+            string? cmd;
 
             try
             {
@@ -208,7 +205,7 @@ namespace NuciCLI.Menus
                 return;
             }
 
-            if (!ActiveMenu.Commands.TryGetValue(cmd, out Command command))
+            if (!ActiveMenu.Commands.TryGetValue(cmd, out Command? command) || command is null)
             {
                 NuciConsole.WriteLine("Unknown command", NuciConsoleColour.Red);
                 return;

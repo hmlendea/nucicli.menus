@@ -27,7 +27,7 @@ namespace NuciCLI.Menus
         /// <summary>
         /// Gets the exception that occurred during command execution, if any.
         /// </summary>
-        public Exception Exception { get; }
+        public Exception? Exception { get; }
 
         /// <summary>
         /// Gets the status of the command execution based on whether an exception occurred.
@@ -59,7 +59,7 @@ namespace NuciCLI.Menus
         public CommandResult(
             DateTime startTime,
             DateTime endTime,
-            Exception exception) : this(startTime, endTime)
+            Exception? exception) : this(startTime, endTime)
             => Exception = exception;
     }
 }
