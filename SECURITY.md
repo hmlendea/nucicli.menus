@@ -8,6 +8,7 @@ This policy covers vulnerability reporting and maintenance for the `NuciCLI.Menu
 - [Reporting a Vulnerability](#reporting-a-vulnerability)
 - [Scope](#scope)
 - [Disclosure Policy](#disclosure-policy)
+- [Automated Security Scanning](#automated-security-scanning)
 - [Safe Harbour](#safe-harbour)
 - [Recognition](#recognition)
 
@@ -49,6 +50,14 @@ This project follows coordinated disclosure:
 2. A remediation plan is prepared and validated.
 3. Public disclosure is published after a fix, mitigation, or agreed risk decision is available.
 4. Credit is attributed in accordance with reporter preference and project policy.
+
+## 🔍 Automated Security Scanning
+
+This repository runs automated security scans on every push and pull request targeting `master`, and on a weekly schedule. The scan includes:
+- **Dependency auditing** identifies known vulnerabilities in direct and transitive NuGet packages.
+- **CodeQL analysis** inspects the C# source for security weaknesses.
+
+Results are published to the [Security](https://github.com/hmlendea/nucicli.menus/security) tab and the [Actions](https://github.com/hmlendea/nucicli.menus/actions/workflows/security.yml) workflow page.
 
 ## 🧾 Safe Harbour
 

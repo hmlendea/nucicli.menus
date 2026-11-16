@@ -1,6 +1,7 @@
 [![Donate](https://img.shields.io/badge/-%E2%99%A5%20Donate-%23ff69b4)](https://hmlendea.go.ro/funding)
 [![Latest Release](https://img.shields.io/github/v/release/hmlendea/nucicli.menus)](https://github.com/hmlendea/nucicli.menus/releases/latest)
 [![Build Status](https://github.com/hmlendea/nucicli.menus/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hmlendea/nucicli.menus/actions/workflows/dotnet.yml)
+[![Security Scan](https://github.com/hmlendea/nucicli.menus/actions/workflows/security.yml/badge.svg)](https://github.com/hmlendea/nucicli.menus/actions/workflows/security.yml)
 [![NuGet](https://img.shields.io/nuget/v/NuciCLI.Menus)](https://nuget.org/packages/NuciCLI.Menus)
 [![License](https://img.shields.io/github/license/hmlendea/nucicli.menus)](https://github.com/hmlendea/nucicli.menus/blob/master/LICENSE)
 
@@ -126,6 +127,7 @@ dotnet test --no-build --verbosity normal
 | [ .NET ](https://github.com/hmlendea/nucicli.menus/blob/master/.github/workflows/dotnet.yml) | Validate changes | Restores dependencies, builds the solution, and runs tests on pushes and pull requests targeting `master`. |
 | [ GitHub Release ](https://github.com/hmlendea/nucicli.menus/blob/master/.github/workflows/github-release.yml) | Publish GitHub release packages | Packs the NuGet package, calculates its SHA256 checksum, uploads it to the GitHub release, and updates the release notes. |
 | [ NuGet.org Release ](https://github.com/hmlendea/nucicli.menus/blob/master/.github/workflows/nuget-release.yml) | Publish the NuGet package | Packs and publishes the package to NuGet.org when a release is published. |
+| [ Security ](https://github.com/hmlendea/nucicli.menus/blob/master/.github/workflows/security.yml) | Scan for vulnerabilities | Audits packages for known vulnerabilities and runs CodeQL analysis for C#, publishing results to GitHub Code Scanning on pushes, pull requests, and a weekly schedule. |
 
 ## 🗂️ Project Structure
 
