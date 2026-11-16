@@ -8,6 +8,11 @@ namespace NuciCLI.Menus
 {
     internal static class MenuPrinter
     {
+        private const int CommandColumnSpacing = 4;
+        private const string SuccessStatusText = "Success";
+        private const string FailureStatusText = "Failed";
+        private const string CancelledStatusText = "Cancelled";
+
         /// <summary>
         /// Prints the menu header.
         /// </summary>
@@ -36,7 +41,7 @@ namespace NuciCLI.Menus
         /// </summary>
         public static void PrintCommandList(IDictionary<string, Command> commands)
         {
-            int commandColumnWidth = commands.Keys.Max(x => x.Length) + 4;
+            int commandColumnWidth = commands.Keys.Max(name => name.Length) + CommandColumnSpacing;
 
             foreach (Command command in commands.Values)
             {
@@ -52,30 +57,31 @@ namespace NuciCLI.Menus
         {
             NuciConsole.WriteLine();
             NuciConsole.Write("Command finished with status ");
+            PrintStatus(result.Status);
+            NuciConsole.Write($" after {GetHumanFriendlyDurationString(result.Duration)}");
 
-            string durationString = GetHumanFriendlyDurationString(result.Duration);
-
-            if (result.Status is CommandStatus.Success)
+            if (result.Status is CommandStatus.Failure)
             {
-                NuciConsole.Write("Success", NuciConsoleColour.Green);
-            }
-            else if (result.Status.Equals(CommandStatus.Failure))
-            {
-                NuciConsole.Write("Failed", NuciConsoleColour.Red);
-            }
-            else if (result.Status.Equals(CommandStatus.Cancelled))
-            {
-                NuciConsole.Write("Cancelled", NuciConsoleColour.Yellow);
-            }
-
-            NuciConsole.Write($" after {durationString}");
-
-            if (result.Status.Equals(CommandStatus.Failure))
-            {
-                NuciConsole.WriteLine($"Error message: {result.Exception.Message}", NuciConsoleColour.Red);
+                NuciConsole.WriteLine($"Error message: {result.Exception?.Message}", NuciConsoleColour.Red);
             }
 
             NuciConsole.WriteLine();
+        }
+
+        private static void PrintStatus(CommandStatus status)
+        {
+            if (status is CommandStatus.Success)
+            {
+                NuciConsole.Write(SuccessStatusText, NuciConsoleColour.Green);
+            }
+            else if (status is CommandStatus.Failure)
+            {
+                NuciConsole.Write(FailureStatusText, NuciConsoleColour.Red);
+            }
+            else if (status is CommandStatus.Cancelled)
+            {
+                NuciConsole.Write(CancelledStatusText, NuciConsoleColour.Yellow);
+            }
         }
 
         private static string GetHumanFriendlyDurationString(TimeSpan timeSpan)

@@ -107,8 +107,8 @@ The principal runtime sequence is:
 
 | Component | Responsibility | Principal Dependencies | Lifetime or Ownership |
 |-----------|----------------|------------------------|-----------------------|
-| `MenuManager` | Singleton access, menu registry, hierarchy, lifecycle, input loop, and dispatch | `Menu`, `MenuPrinter`, `NuciConsole` | Process-level singleton when accessed through `Instance`; menu registry owns active instances |
-| `Menu` | Menu identity, parent link, presentation settings, built-in commands, custom command registration, and disposal | `Command`, `MenuManager`, `MenuPrinter` | Created by the manager or host; disposed by the manager when closed |
+| `MenuManager` | Singleton access, menu registry, hierarchy, lifecycle, input loop, and dispatch | `IMenuManager`, `Menu`, `MenuPrinter`, `NuciConsole` | Process-level singleton when accessed through `Instance`; menu registry owns active instances |
+| `Menu` | Menu identity, parent link, presentation settings, built-in commands, custom command registration, and disposal | `IMenu`, `Command`, `MenuManager`, `MenuPrinter` | Created by the manager or host; disposed by the manager when closed |
 | `Command` | Stores a name, description, and `Action`; captures execution timing and cancellation | Host `Action`, `InputCancellationException` | Owned by its `Menu`; cleared on menu disposal |
 | `CommandResult` | Represents duration, exception, and derived success/failure/cancelled status | `CommandStatus` | Created per command execution; consumed by optional presentation |
 | `MenuPrinter` | Formats menu headers, command lists, and execution statistics | `NuciConsole`, `NuciExtensions` | Stateless internal helper |
@@ -288,7 +288,8 @@ Command names are case-sensitive and must not collide with the built-in `exit` a
 | Area | Path |
 |------|------|
 | Public menu and command orchestration | `NuciCLI.Menus/Menu.cs`, `NuciCLI.Menus/MenuManager.cs`, `NuciCLI.Menus/Command.cs` |
-| Results and presentation | `NuciCLI.Menus/CommandResults.cs`, `NuciCLI.Menus/CommandStatus.cs`, `NuciCLI.Menus/MenuPrinter.cs` |
+| Internal contracts | `NuciCLI.Menus/IMenu.cs`, `NuciCLI.Menus/IMenuManager.cs` |
+| Results and presentation | `NuciCLI.Menus/CommandResult.cs`, `NuciCLI.Menus/CommandStatus.cs`, `NuciCLI.Menus/MenuPrinter.cs` |
 | Unit tests | `NuciCLI.Menus.UnitTests/` |
 | Package and solution manifests | `NuciCLI.Menus/NuciCLI.Menus.csproj`, `NuciCLI.Menus.UnitTests/NuciCLI.Menus.UnitTests.csproj`, `NuciCLI.Menus.slnx` |
 | Continuous integration | `.github/workflows/dotnet.yml` |
