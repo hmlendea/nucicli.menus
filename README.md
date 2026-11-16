@@ -33,6 +33,7 @@ NuciCLI.Menus is a lightweight .NET menu system for building interactive, comman
 - [Code of Conduct](#code-of-conduct)
 - [Changelog](#changelog)
 - [Security](#security)
+- [Support](#support)
 - [Project Engagement](#project-engagement)
 - [License](#license)
 
@@ -158,6 +159,9 @@ The repository contains the following project documentation:
 
 | Resource | Description |
 |----------|-------------|
+| [Documentation index](./docs/INDEX.md) | Master navigation for repository, API, component, behaviour, flow, testing, and maintenance documentation. |
+| [Quick start](./docs/quick-start.md) | Installation, minimal host usage, and next steps. |
+| [API reference](./docs/api-reference/INDEX.md) | Public `Menu` and `MenuManager` types and members. |
 | [Architecture](./ARCHITECTURE.md) | System context, components, runtime flows, and extension points. |
 | [Contributing](./CONTRIBUTING.md) | Contribution workflow and project standards. |
 | [Privacy](./PRIVACY.md) | Privacy and personal-data handling. |
@@ -197,6 +201,10 @@ The project uses GitHub Releases to publish versioned changes. See the [release 
 NuciCLI.Menus follows a coordinated disclosure policy for vulnerability reporting.
 
 For information on reporting security vulnerabilities, see [SECURITY.md](./SECURITY.md).
+
+## 💬 Support
+
+For support, please [open an issue](https://github.com/hmlendea/nucicli.menus/issues).
 
 ## 💝 Project Engagement
 
